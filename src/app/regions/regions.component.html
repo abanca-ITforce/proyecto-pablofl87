@@ -1,1 +1,8 @@
-<p>regions works!</p>
+<pf-regions-list
+  *ngIf="regions$ | async as regions; else empty"
+  [regions]="regions"
+></pf-regions-list>
+
+<ng-template #empty>
+  Loading...
+</ng-template>
