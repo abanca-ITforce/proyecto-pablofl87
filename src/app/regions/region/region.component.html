@@ -1,1 +1,6 @@
-<p>region works!</p>
+<pf-region-card
+  *ngIf="region$ | async as region; else empty"
+  [region]="region"
+>
+</pf-region-card>
+<ng-template #empty>Loading...</ng-template>

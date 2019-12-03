@@ -25,4 +25,9 @@ export class ApiService {
     const url = 'https://api.worldbank.org/v2/region/?format=json';
     return this.httpClient.get<any[]>(url).pipe(map(data => data[1]));
   }
+
+  getRegionByCode$(regionCode){
+    const url = this.endPoint + '/' + regionCode + this.format;
+    return this.httpClient.get<any>(url).pipe(map(result => result[1]));
+  }
 }
