@@ -1,1 +1,4 @@
-<p>search works!</p>
+<pf-form-filters></pf-form-filters>
+<app-countries-list *ngIf="countries$ | async as countries; else empty"
+[countries]="countries"></app-countries-list>
+<ng-template #empty>Loading...</ng-template>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ApiService } from '../api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  countries$: Observable<any[]>;
 
-  constructor() { }
+  constructor(private api: ApiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.countries$ = this.api.getCountriesByFilters();
   }
 
 }
