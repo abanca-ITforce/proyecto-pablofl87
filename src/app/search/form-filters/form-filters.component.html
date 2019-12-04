@@ -1,8 +1,17 @@
-<p>form-filters works!</p>
 <form [formGroup]="searchForm">
   <mat-card>
     <mat-card-header>
       <mat-card-title>Search</mat-card-title>
     </mat-card-header>
+    <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor= "let income of incomes" [value]="income.id" > {{income.id }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-button
+  type="submit"
+  (click)="onSubmit()"
+  >Search</button>
   </mat-card>
 </form>
+<!-- {{incomes | json}} -->

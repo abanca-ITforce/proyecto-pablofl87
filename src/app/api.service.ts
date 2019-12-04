@@ -40,4 +40,15 @@ export class ApiService {
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
 
   }
+  getIncomes(){
+    return [
+    {id: "HIC", description: "high"},
+    {id: "INX", description: "high"},
+    {id: "LIC", description: "high"},
+    {id: "LMC", description: "high"},
+    {id: "LMY", description: "high"},
+    {id: "MIC", description: "high"},
+    {id: "UMC", description: "high"}
+  ];
+  }
 }

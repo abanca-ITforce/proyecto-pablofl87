@@ -10,11 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
   countries$: Observable<any[]>;
+  incomes: any[];
 
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.countries$ = this.api.getCountriesByFilters();
+    this.incomes = this.api.getIncomes();
   }
 
 }

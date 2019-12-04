@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,9 @@ export class FormFiltersComponent implements OnInit {
   searchForm = this.fb.group(
     {
       incomeLevel: [null, []]
-    })
+    });
+
+    @Input() incomes;
 
   constructor(private fb: FormBuilder) { }
 
