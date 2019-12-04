@@ -10,11 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RegionComponent implements OnInit {
   region$: Observable<any>;
+  countries$: Observable<any[]>;
 
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     const regionCode = this.activatedRoute.snapshot.params.regionCode;
-    this.region$ = this.api.getRegionByCode$(regionCode);
+    this.region$ = this.api.getRegionByCode(regionCode);
+    this.countries$ = this.api.getCountriesByRegionCode(regionCode);
   }
 }

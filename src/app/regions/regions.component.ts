@@ -14,7 +14,7 @@ export class RegionsComponent implements OnInit {
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.regions$ = this.api.getAllregions$();
+    this.regions$ = this.api.getAllRegions$();
   }
 
 }

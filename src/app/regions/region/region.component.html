@@ -3,5 +3,7 @@
   [region]="region"
 >
 </pf-region-card>
-<p>hola</p>
 <ng-template #empty>Loading...</ng-template>
+
+<app-countries-list *ngIf="countries$ | async as countries; else empty"
+[countries]="countries"></app-countries-list>
