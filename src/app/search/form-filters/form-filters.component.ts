@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -15,8 +15,13 @@ export class FormFiltersComponent implements OnInit {
     @Input() incomes;
 
   constructor(private fb: FormBuilder) { }
+  @Output() searchFilters = new EventEmitter<any>();
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.searchFilters.emit(this.searchForm.value);
   }
 
 }

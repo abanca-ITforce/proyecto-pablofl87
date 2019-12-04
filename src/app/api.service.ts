@@ -9,6 +9,8 @@ export class ApiService {
   private countryEndPoint = 'https://api.worldbank.org/v2/country';
   private regionEndPoint = 'https://api.worldbank.org/v2/region';
   private format = '?per_page=1000&format=json';
+  private searchEndPoint = 'https://api.worldbank.org/v2/country?incomeLevel=';
+  private formatSearch = 'per_page=1000&format=json';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -35,20 +37,19 @@ export class ApiService {
     const url = this.countryEndPoint + this.format + '&region=' + regionCode;
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
   }
-  getCountriesByFilters() {
-    const url = this.countryEndPoint + this.format;
+  getCountriesByFilters(searchFilters) {
+    const url = this.searchEndPoint + searchFilters + this.formatSearch;
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
-
   }
-  getIncomes(){
+  getIncomes() {
     return [
-    {id: "HIC", description: "high"},
-    {id: "INX", description: "high"},
-    {id: "LIC", description: "high"},
-    {id: "LMC", description: "high"},
-    {id: "LMY", description: "high"},
-    {id: "MIC", description: "high"},
-    {id: "UMC", description: "high"}
-  ];
+      { id: 'HIC', description: 'high' },
+      { id: 'INX', description: 'high' },
+      { id: 'LIC', description: 'high' },
+      { id: 'LMC', description: 'high' },
+      { id: 'LMY', description: 'high' },
+      { id: 'MIC', description: 'high' },
+      { id: 'UMC', description: 'high' }
+    ];
   }
 }

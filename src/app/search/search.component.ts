@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.countries$ = this.api.getCountriesByFilters();
+    this.countries$ = this.api.getCountriesByFilters(searchFilters);
     this.incomes = this.api.getIncomes();
   }
 
