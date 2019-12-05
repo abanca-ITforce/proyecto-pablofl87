@@ -49,7 +49,6 @@ export class ApiService {
     if (filter.lendingType) {
       url += '&lendingType=' + filter.lendingType;
     }
-    console.log({ url });
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
   }
   getIncomeLevels$() {
