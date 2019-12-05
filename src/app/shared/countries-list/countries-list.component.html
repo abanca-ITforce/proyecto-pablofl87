@@ -1,4 +1,5 @@
-<mat-nav-list *ngIf="countries.length>=1; else noData">
+<!-- <mat-nav-list *ngIf="countries.length>=1; else noData"> -->
+  <mat-nav-list>
   <a
     mat-list-item
     [routerLink]="[isAbsolute ? '/' : '', 'countries', country.id]"
@@ -7,4 +8,4 @@
     {{ country.name }}
   </a>
 </mat-nav-list>
-<ng-template #noData>No data</ng-template>
+<!-- <ng-template #noData>No data</ng-template> -->

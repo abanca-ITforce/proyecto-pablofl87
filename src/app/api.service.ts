@@ -41,10 +41,13 @@ export class ApiService {
     // https://api.worldbank.org/v2/country?
     // lendingType = LNX &
     // incomeLevel = HIC &
-    // region = ECS & per_page=1000 & format=json
+    // region = ECS
     let url = this.countryEndPoint + this.format; // + '&region=' + regionCode;
     if (filter.incomeLevel) {
       url += '&incomeLevel=' + filter.incomeLevel;
+    }
+    if (filter.lendingType) {
+      url += '&lendingType=' + filter.lendingType;
     }
     console.log({ url });
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
